@@ -1,0 +1,607 @@
+﻿<!DOCTYPE HTML>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US" class="ie ie6 lt-ie9">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US" class="ie ie7 lt-ie9">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" class="ie ie8 lt-ie9">
+<![endif]-->
+<!--[if gte IE 9]>
+<html lang="en-US" class="ie ie9">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en-US" class="">
+<!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="Damien Accorsi">
+
+  <meta property="og :title" content="Pod - suivi et documentation de projet">
+  <meta property="og :type" content="website">
+  <meta property="og :url" content="">
+  <meta property="og :image" content="">
+  <meta property="og :site_name" content="">
+  <meta property="fb :admins" content="">
+
+  <title>Introduction à Scrapy - Damien Accorsi</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="css/flowtime.css">
+  <link rel="stylesheet" href="css/themes/default.css">
+  <link rel="stylesheet" href="assets/css/prism.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed"   href="img/touch-icon-iphone.png">
+  <link rel="apple-touch-icon-precomposed"   sizes="72x72"     href="img/touch-icon-ipad.png">
+  <link rel="apple-touch-icon-precomposed"   sizes="114x114"   href="img/touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon-precomposed"   sizes="144x144"   href="img/touch-icon-ipad-retina.png">
+  
+</head>
+<body class="">
+  <div class="flowtime">
+    <div class="ft-section" data-id="section-1">
+      <div id="/section-1/page-1" class="ft-page" data-id="page-1" data-title="POD - Logiciel de suivi et documentation de projet">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Introduction à<br/> <strong>Scrapy</strong></h1>
+            <hr style="width: 25%">
+            <p class="page-title">
+              web crawling et<br/> extraction de données
+            </p>
+            <hr style="width: 25%">
+            <p>
+              <small>Damien Accorsi — <a href="mailto: damien arobase accorsi point info">damien@accorsi.info</a></small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <div id="/section-1/page-2" class="ft-page" data-id="page-2">
+            <h1>Qui suis-je ?</h1>
+
+            <p><strong>&#9885;</strong> Damien Accorsi</p>
+            <p><strong>&#9885;</strong> Freelance architecture et dév. backend</p>
+            <p><strong>&#9885;</strong> Créateur de Tracim &mdash; <a href="http://tracim.fr" title="logiciel (libre)
+                de gestion collaborative des connaissances et de versionning de fichiers">http://tracim.fr</a>
+            </p>
+            <p>
+                <strong>&#9885;</strong> Contributeur LinuxFR &mdash; <a href="http://linuxfr.org/users/lebouquetin">http://linuxfr.org/users/lebouquetin</a>
+            </p>
+        </div>
+
+
+      <div id="/section-1/page-3" class="ft-page" data-id="page-3">  
+          <div>
+              <h1 class="stacked-center">Qu'est-ce que Scrapy ?</h1>
+  
+              <h2>&#9885; Le site web de Scrapy dit...</h2>
+              <p class="center">
+                  &laquo;&nbsp;An open source and collaborative framework<br/>
+                  for <strong>extracting</strong> the <strong>data</strong> you need <strong>from websites</strong>.<br/>
+                  In a fast, simple, yet extensible way. &nbsp;&raquo;
+              </p>
+              <h2>&#9885; Scrapy est donc...</h2>
+              <ul>
+                  <li>un outil de crawling</li>
+                  <li>un outil d'extraction de données</li>
+                </ul>
+          </div>
+      </div>
+
+        <div id="/section-1/page-4" class="ft-page" data-id="page-4">
+            <div>
+                <h1>A quoi sert Scrapy ?</h1>
+                <div>
+                    <h2>&#9885; <strong>agréger</strong> des données</h2>
+                    <p>Exemple : comparateur de prix, agrégateurs d'annonces...</p>
+                </div>
+                <div>
+                    <h2>&#9885; <strong>extraire et structurer</strong> des données web</h2>
+                    <p>Exemple : création de statistiques sur un site web...</p>
+                </div>
+                <div>
+                    <h2>&#9885; <strong>synchroniser</strong> des données</h2>
+                    <p>Exemple : traitement de données distantes CSV, XML...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="/section-1/page-5" class="ft-page" data-id="page-5">  
+            <div>
+                <h1>Scrapy &mdash; <a href="http://scrapy.org">http://scrapy.org</a></h1>
+  
+                <div>
+                    <h2>&#9885; Une large communauté</h2>
+                    <ul>
+                        <li>7,246 <strong>&#10040;</strong> et 2,029 forks sur Github,</li>
+                        <li>7900 questions sur Stackoverflow</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>&#9885; Un projet mature</h2>
+                    <ul>
+                        <li>Premier commit le 26/06/2008,</li>
+                        <li>Utilisé par de nombreux professionnels</li>
+                        <li>un &laquo;&nbsp;framework&nbsp;&raquo; exhaustif : <strong>documentation, configuration, évolutivité</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="/section-1/page-6" class="ft-page" data-id="page-6">
+            <div>
+                <h1>Principe de fonctionnement</h1>
+                
+                <ol class="ft-fragment">
+                    <li>définition des urls initiales</li>
+                    <li>parsing des pages</li>
+                    <li>extraction des données</li>
+                    <li>extraction des urls à suivre</li>
+                    <li>traitement des données</li>
+                    <li>itération suivante...</li>
+                </ol>
+                <img class="ft-fragment" style="top: 6em; right: 2em; position: absolute; z-index:-1; width: 40%;" src="scrapy_architecture.png">
+                <br/><br/>
+                <p class="ft-fragment">&laquo;&nbsp; write the rules to extract the data and <strong>let Scrapy do the rest</strong>&nbsp;&raquo;</p>
+            </div>
+        </div>
+
+        <div id="/section-1/page-5" class="ft-page" data-id="page-5">
+            <div>
+                <h1 class="stacked-center">Scrapy par l'exemple</h1>
+                <p>
+                    Trois exemples pour illustrer le fonctionnement de scrapy
+                </p>
+                <table>
+                    <tr>
+                        <td style="width: 30%">
+                            <p>afpy &mdash; jobs</p>
+                            <img src="afpy.png" style="width: 80%;"/>
+                        </td>
+                        <td style="width: 30%">
+                            <p>LinuxFR &mdash; dépêches</p>
+                            <img src="linuxfr.png" style="width: 80%;"/>
+                        </td>
+                        <td style="width: 30%">
+                            <p>Apec &mdash; salaires &laquo;&nbsp;python&nbsp;&raquo;</p>
+                            <img src="apec.png" style="width: 80%;"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="/section-1/page-7" class="ft-page" data-id="page-7">
+            <h1>Exemple #1 &mdash; Afpy jobs</h1>
+            <div class="stack">
+                <div class="ft-fragment stacked shy">
+                    <p>
+                        Extraction de la liste des offres d'emploi du site web de l'AFPY &mdash; <a href="http://www.afpy.org/jobs">http://www.afpy.org/jobs/</a>
+                    </p>
+                    <p>
+                        <img src="afpy.png" style="width: 33%;">
+                    </p>
+                </div>
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-markup">&lt;div class="jobitem"&gt;
+  &lt;a href="http://www.afpy.org/jobs/full-stack-developper-python-django-angular"&gt;
+    &lt;h2 class="tileHeadline"&gt;Full Stack Developper - Python/Django + Angular&lt;/h2&gt;
+  &lt;/a&gt;
+  &lt;span class="discreet"&gt;
+    Cr&eacute;&eacute; le 26/01/2015 21:28
+    par &lt;a href="http://www.labadens.eu/w"&gt;Labadens&lt;/a&gt;
+  &lt;/span&gt;
+  
+  &lt;p&gt;If you are a Python Developer with Front-end development experience, please read on!&lt;/p&gt;
+  &lt;div class="portletMore"&gt;
+    &lt;a href="http://www.afpy.org/jobs/full-stack-developper-python-django-angular"&gt;Lire l'offre&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;div class="listingBar"&gt;
+    &lt;span class="next"&gt;
+        &lt;a href="http://www.afpy.org/jobs?b_start:int=10"&gt;
+           10 éléments suivants &raquo;
+        &lt;/a&gt;
+    &lt;/span&gt;
+    ...
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-python">from scrapy import Spider, Item, Field, Request
+
+class Job(Item):
+    title = Field()
+    url = Field()
+
+class AfpyJobSpider(Spider):
+
+    name = 'afpy_jobs'
+    start_urls = ['http://www.afpy.org/jobs']
+
+    def parse(self, response):
+
+        for job in response.xpath('//div[@class="jobitem"]'):
+            title_xpath = './a/h2[@class="tileHeadline"]/text()'
+            url_xpath = './a/@href'
+            
+            title = job.xpath(title_xpath)[0].extract()
+            url = job.xpath(url_xpath)[0].extract()
+
+            yield Job(title=title, url=url)
+
+
+        next_page_url_xpath = '//div[@class="listingBar"]/span[@class="next"]/a/@href'
+        next_page_url = response.xpath(next_page_url_xpath)[0].extract()
+        yield Request(url=next_page_url)
+</code></pre>
+                    <a href="afpy_jobs.xml" target="_blank" style="text-decoration: none;">
+                        <pre><code class="language-python">$ scrapy runspider afpy_spider.py -o afpy_jobs.xml</code></pre>
+                    </a>
+                </div>
+            </div ><!--  STACK -->
+        </div>
+
+        <div id="/section-1/page-8" class="ft-page" data-id="page-8">
+            <div>
+                <h1>Premiers enseignements</h1>
+                <ul>
+                    <li>Besoin simple => code simple</li>
+                    <li>Formats de sortie standard.<br/>XML, mais également CSV, JSON</li>
+                    <li>Il faut aimer XPATH ;)</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div id="/section-1/page-9" class="ft-page" data-id="page-9">
+            <h1>Exemple #2 - LinuxFR</h1>
+            <div class="stack">
+                <div class="ft-fragment stacked shy">
+                    <p>
+                        Listing des dépêches de LinuxFR &mdash; <a href="http://www.linuxfr.org">http://www.linuxfr.org</a><br/>
+                        prenant en compte le statut visité / non visité 
+                    </p>
+                    <p>
+                        <img src="linuxfr.png" style="width: 33%;">
+                    </p>
+                </div>
+
+                <div class="ft-fragment stacked shy">
+                    <h2>Le processus d'exécution humain</h2>
+                    <ol>
+                        <li>Aller sur la page de login</li>
+                        <li>Détecter visuellement le formulaire de login</li>
+                        <li>Remplir et validater le formulaire</li>
+                        <li>Vérifier que mon login a réussi</li>
+                        <li>Commencer le listing des dépêches et noter l'information</li>
+                    </ol>
+                </div>
+
+                <div class="ft-fragment stacked shy">
+                    <h2>Le processus d'exécution Scrapy</h2>
+                    <ol>
+                        <li>Crawling de la page de login</li>
+                        <li>Détection du formulaire via xpath</li>
+                        <li>Validation du formulaire</li>
+                        <li>Vérification de l'authentification</li>
+                        <li>Démarrage du crawling &laquo;&nbsp;normal&nbsp;&raquo;</li>
+                    </ol>
+                </div>
+
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-markup">&lt;form id="new_account" class="new_account" action="/compte/connexion" accept-charset="UTF-8" method="post"&gt;&lt;input name="utf8" type="hidden" value="&#x2713;" /&gt;
+  &lt;p&gt;
+    &lt;label for="account_login"&gt;Identifiant&lt;/label&gt;
+    &lt;input id="account_login" required="required" placeholder="Identifiant" size="20" type="text" name="account[login]" /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for="account_password"&gt;Mot de passe&lt;/label&gt;
+    &lt;input id="account_password" required="required" placeholder="Mot de passe" size="20" type="password" name="account[password]" /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;input name="account[remember_me]" type="hidden" value="0" /&gt;&lt;input id="account_remember_me" type="checkbox" value="1" name="account[remember_me]" /&gt;
+    &lt;label for="account_remember_me"&gt;Connexion automatique&lt;/label&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;input type="submit" name="commit" value="Se connecter" id="account_submit" /&gt;
+  &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-python">class LinuxfrNewsSpider(Spider):
+
+    name = ('linuxfr_news_spider')
+
+    def __init__(self, login, password, page=0, *args, **kwargs):
+        super(LinuxfrNewsSpider, self).__init__(*args, **kwargs)
+        self.start_urls = ['https://linuxfr.org/compte/connexion']
+        self.start_page_id = page
+        self.login = login
+        self.password = password
+
+    def parse(self, response):
+        return FormRequest.from_response(
+            response,
+            formxpath = '//form[@id="new_account"]',
+            formdata = {
+                'account[login]': self.login,
+                'account[password]': self.password,
+            },
+            callback=self.after_login
+        )
+
+    def after_login(self, response):
+        ...
+</code></pre>
+                </div>
+
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-python">    def parse(self, response):
+        return FormRequest.from_response(
+            response,
+            formxpath = '//form[@id="new_account"]',
+            formdata = {
+                'account[login]': self.login,
+                'account[password]': self.password,
+            },
+            callback = self.after_login
+        )
+
+    def after_login(self, response):
+        if "Identifiant ou mot de passe invalide" in response.body:
+            self.log("Login failed", level=log.ERROR)
+            return
+
+        print 'IDENTIFIED as '+response.xpath('//aside[@id="sidebar"]/div[@class="login box"]/h1/a/text()')[0].extract()
+        print ''
+        print 'waiting 5 seconds before continue...'
+        time.sleep(5)
+        yield Request('https://linuxfr.org/news?page=%s' % self.start_page_id, self.authenticated_parse)
+
+    def authenticated_parse(self, response):
+        # self.settings['DOWNLOAD_DELAY'] = 2
+        ...
+</code></pre>
+                </div>
+
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-python">    def authenticated_parse(self, response):
+        # self.settings['DOWNLOAD_DELAY'] = 2
+        articles = response.xpath('//article')
+
+        for article in articles:
+            title = article.xpath('./header/h1/a/text()')[0].extract()
+            path = article.xpath('./header/h1/a/@href')[0].extract()
+            pub_date = article.xpath('./header/div[@class="meta"]/time/@datetime')[0].extract()
+            score = article.xpath('.//figure[@class="score"]/text()')[0].extract()
+            comment_nb = article.xpath('./footer//span[@class="nb_comments"]/text()').re(r'\d+')[0] ## HERE
+            visited = article.xpath('./footer//span[@class="visit"]/text()').re(r', (.*)')[0] ## HERE
+            yield LinuxNewsPost(
+                title = title,
+                url = 'https://linuxfr.org'+path,
+                score = score,
+                pub_date = pub_date,
+                comment_nb = int(comment_nb),
+                visited = visited
+            )
+
+        next_page_path = response.xpath('//nav[@class="toolbox"]/nav[@class="pagination"]/span[@class="next"]/a/@href')[0].extract()
+        yield Request('https://linuxfr.org'+next_page_path, self.authenticated_parse)
+
+</code></pre>
+                </div>
+                
+                <div class="ft-fragment stacked shy">
+                    <h2>Exécution via la commande suivante :</h2>
+                    <pre><code class="language-python"> scrapy runspider linuxfr_news_spider.py -a login=pyuggre -a password="mon_mot_de_passe" -a page=0</code></pre>
+                    <p>
+                        Ce qui donne, <a href="linuxfr_news_visited.ods">sous forme csv</a> (un peu retraité)...
+                    </p>
+                </div>
+            </div ><!--  STACK -->
+        </div>
+
+
+        <div id="/section-1/page-10" class="ft-page" data-id="page-10">
+            <div>
+                <h1>Nouveaux enseignements</h1>
+                <ul>
+                    <li>Support de HTTPS</li>
+                    <li>Support de l'authentification via un formulaire de login</li>
+                    <li>Paramétrage de l'exécution</li>
+                    <li>On peut aussi aimer les <strong>expressions régulières</strong> :)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="/section-1/page-11" class="ft-page" data-id="page-11">
+            <h1>Exemple #3 - APEC</h1>
+            <div class="stack">
+                <div class="ft-fragment stacked shy">
+                    <p>
+                        Salaire moyen des offres d'emploi &laquo;&nbsp;python&nbsp;&raquo; sur le site de l'APEC ?
+                        <br/><br/>
+                        <img src="apec.png" style="width: 33%"/>
+                    </p>
+                </div>
+                <div class="ft-fragment stacked shy">
+                    <p>Problématiques :</p>
+                    <ul>
+                        <li>Parser les résultats de recherche pour trouver les annonces</li>
+                        <li>Naviguer dans la pagination des résultats de recherche</li>
+                        <li>Crawler et parser les pages de présentation de chaque annonce</li>
+                        <li>Extraire les informations de salaire (quand elles sont présentes)</li>
+                    </ul>
+                    <p>Accessoirement : gérer la dette technique du site web de l'APEC</p>
+                </div>
+                <div class="ft-fragment stacked shy">
+<pre><code class="language-markup">&lt;table class="noFieldsTable"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Référence Apec :&lt;/th&gt;
+        &lt;td&gt;125496545W-5417-6876&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+    &lt;tr&gt;
+        &lt;th&gt;Lieu :&lt;/th&gt;
+        &lt;td&gt;BOULOGNE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Salaire :&lt;/th&gt;
+        &lt;td&gt;De 45000 &agrave; 50000 EUR par an&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+&lt;table class="noFieldsTable"&gt;</code></pre>
+                    <p>Mais le texte peut aussi être absent, de la forme "aux alentours de 40K€", "à discuter"...</p>
+                </div>
+                <div class="ft-fragment stacked shy">
+                    <p>Solution technique :</p>
+                    <ul>
+                        <li>Une méthode de parsing des &laquo;&nbsp;résultats de recherche&nbsp;&raquo;</li>
+                        <li>Une méthode de parsing des page &laquo;&nbsp;annonces&nbsp;&raquo;</li>
+                        <li>Utilisation des &laquo;&nbsp;ItemLoader&nbsp;&raquo; pour normaliser le contenu et gérer les différents cas</li>
+                    </ul>
+                </div>
+                <div class="ft-fragment stacked shy">
+                    <p>Architecture du code :</p>
+                    <ul>
+                        <li>
+                            Un composant &laquo;&nbsp;spider&nbsp;&raquo; qui &laquo;&nbsp;crawle&nbsp;&raquo;
+                            les pages, extrait les liens et les informations
+                            <ul>
+                                <li><strong>contrôleur dans une architecture MVC</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Un composant &laquo;&nbsp;item&nbsp;&raquo;
+                            qui représente les données structurées finales
+                            <ul>
+                                <li><strong>structure de données sérializable</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Un composant &laquo;&nbsp;ItemLoader&nbsp;&raquo; qui transforme les données
+                            &laquo;&nbsp;brutes&nbsp;&raquo; issues du crawling en données structurées
+                            <ul>
+                                <li><strong>flexibilité pour la mise au point de règles complexes</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ft-fragment stacked shy">
+                    <h2>Résultats</h2>
+                    <p>Voir <a href="apec_spider.py">le code</a></p>
+                    <p>Voir <a href="jobs.ods">les résultats</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="/section-1/page-12" class="ft-page" data-id="page-12">
+            <div>
+                <h1>Nouveaux enseignements</h1>
+                <ul>
+                    <li>Scrapy est flexible et bien structuré</li>
+                    <li>Scrapy est bien documenté</li>
+                    <li>Les expressions régulières, c'est inévitable ;)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="/section-1/page-13" class="ft-page" data-id="page-13">
+            <div>
+                <h1>Points forts de Scrapy</h1>
+                <ul>
+                    <li>Framework mature et hyper documenté</li>
+                    <li>Simplicité et montée en compétences immédiate</li>
+                    <li>Grande souplesse d'utilisation et extensibilité</li>
+                    <li>Aussi bien adapté à du prototypage ou du code jetable qu'à la mise en place d'une infrastructure de crawling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="/section-1/page-14" class="ft-page" data-id="page-15">
+            <div>
+                <h1>Quand <strong>ne pas</strong> utiliser Scrapy ?</h1>
+                <ul>
+                    <li>lorsque des api sont disponibles (les données sont déjà structurées)</li>
+                    <li>encore plus s'il s'agit d'api REST &mdash; creuser du côté de <a href="https://github.com/redodo/tortilla">Tortilla</a></li>
+                    <li>quand on aime python 3 &mdash; Scrapy supporte <a href="http://doc.scrapy.org/en/latest/faq.html#faq-python-versions">python 2.7 uniquement</a></li>
+                    <li>
+                        lorsqu'on cible des sites fortement dynamiques &mdash; regarder du côté de
+                        <a href="https://github.com/makinacorpus/spynner">spynner</a>
+                        (voire <a href="http://phantomjs.org/">phantomjs</a> &mdash; javascript)
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="/section-1/page-15" class="ft-page" data-id="page-15">
+            <div>
+                <h1>Sujets à creuser par vous même ;)</h1>
+                <ul>
+                    <li>le <a href="http://doc.scrapy.org/en/0.24/topics/commands.html#std:command-shell">shell scrapy</a></li>
+                    <li>la <a href="http://doc.scrapy.org/en/0.24/intro/tutorial.html">création de projets</a></li>
+                    <li>l'ensemble des <a href="http://doc.scrapy.org/en/0.24/topics/settings.html#built-in-settings-reference">paramètres de configuration</a></li>
+                    <li>le &laquo;&nbsp;<a href="http://doc.scrapy.org/en/0.24/topics/item-pipeline.html">pipeline</a>&nbsp;&raquo; permettant de chaîner les traitements</li>
+                    <li><a href="http://scrapyd.readthedocs.org/en/latest/">Scrapyd</a></li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+  <div class="loglog"></div>
+
+  <script src="js/brav1toolbox.js"></script>
+  <script src="js/flowtime.js"></script>
+  <script src="assets/js/prism.js"></script>
+
+  <script type="text/javascript">
+    // Minified python code highlight
+    // taken from http://www.multipetros.gr/posts/1486-python-syntax-add-on-for-prismjs-highlighter/
+    Prism.languages.python={comment:{pattern:/(^|[^\\])#.*?(\r?\n|$)/g,lookbehind:!0},string:/("|')(\\?.)*?\1/g,keyword:/\b(as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|pass|print|raise|return|try|while|with|yield)\b/g,boolean:/\b(True|False)\b/g,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/[-+]{1,2}|=?&lt;|=?&gt;|!|={1,2}|(&){1,2}|(&amp;){1,2}|\|?\||\?|\*|\/|~|\^|%|\b(or|and|not)\b/g,ignore:/&(lt|gt|amp);/gi,punctuation:/[{}[\];(),.:]/g};
+  </script>
+  <script type="text/javascript">
+    var cacheTitle = document.title.replace("Flowtime.js | ", "");
+    
+    // Configuration API test
+    Flowtime.showProgress(true);
+    // Flowtime.fragmentsOnSide(true);
+    // Flowtime.fragmentsOnBack(true);
+    // Flowtime.useHistory(false);
+    // Flowtime.slideInPx(true);
+    // Flowtime.sectionsSlideToTop(true);
+    // Flowtime.gridNavigation(false);
+    // Flowtime.useOverviewVariant(true);
+    Flowtime.parallaxInPx(true);
+    //
+    // event management
+    Flowtime.addEventListener("flowtimenavigation", onNavigation, false);
+    function onNavigation(e)
+    {
+      // console.log(cacheTitle + ' > ' + document.title.replace("Flowtime.js | ", ""));
+      cacheTitle = document.title.replace("Flowtime.js | ", "");
+      //console.log('section', e.section, 'sectionIndex', e.sectionIndex);
+      //console.log('page', e.page, 'pageIndex', e.);
+      //console.log('pastSectionIndex', e.pastSectionIndex, 'pastPageIndex', e.pastPageIndex);
+      //console.log('prevSection', e.prevSection);
+      //console.log('nextSection', e.nextSection);
+      //console.log('prevPage', e.prevPage);
+      //console.log('nextPage', e.nextPage);
+      //console.log('fragment', e.fragment, + 'fragmentIndex', e.fragmentIndex);
+      //console.log("isOverview", e.isOverview);
+      //console.log('progress :', e.progress, 'total :', e.total);
+      // var value = Math.round(e.progress * 100 / e.total);
+      // console.log('Completion : ' + value + '%');
+    }
+    // starts the application with configuration options
+    Flowtime.start();
+  </script>
+  <script type="text/javascript" src="http ://slidemote.jit.su/slidemote.js#flowtime"></script>
+</body>
+</html>
