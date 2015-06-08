@@ -1,0 +1,625 @@
+﻿<!DOCTYPE HTML>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US" class="ie ie6 lt-ie9">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US" class="ie ie7 lt-ie9">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" class="ie ie8 lt-ie9">
+<![endif]-->
+<!--[if gte IE 9]>
+<html lang="en-US" class="ie ie9">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en-US" class="">
+<!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="Damien Accorsi">
+
+  <meta property="og :title" content="Wrapping web APIs with Tortilla - Damien Accorsi">
+  <meta property="og :type" content="website">
+  <meta property="og :url" content="">
+  <meta property="og :image" content="">
+  <meta property="og :site_name" content="">
+  <meta property="fb :admins" content="">
+
+  <title>Wrapping web APIs with Tortilla - Damien Accorsi</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="css/flowtime.css">
+  <link rel="stylesheet" href="css/themes/default.css">
+  <link rel="stylesheet" href="assets/css/prism.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed"   href="img/touch-icon-iphone.png">
+  <link rel="apple-touch-icon-precomposed"   sizes="72x72"     href="img/touch-icon-ipad.png">
+  <link rel="apple-touch-icon-precomposed"   sizes="114x114"   href="img/touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon-precomposed"   sizes="144x144"   href="img/touch-icon-ipad-retina.png">
+  
+</head>
+<body class="">
+  <div class="flowtime">
+    <div class="ft-section" data-id="section-1">
+      <div id="/section-1/page-1" class="ft-page" data-id="page-1" data-title="Wrapping web APIs with Tortilla">
+        <div class="stack-center">
+          <div class="stacked-center">
+            <h1>Wrapping web APIs <br/>with <strong>Tortilla</strong></h1>
+            <hr style="width: 25%">
+            <p class="page-title">
+                wrapping web APIs made easy<br/>
+                <small>(and more...)</small>
+            </p>
+            <hr style="width: 25%">
+            <p>
+              <small>Damien Accorsi — <a href="mailto: damien point accorsi arobase algoo point fr">damien.accorsi@algoo.fr</a></small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <div id="/section-1/page-2" class="ft-page" data-id="page-2">
+            <h1>Qui suis-je ?</h1>
+
+            <p><strong>&#9885;</strong> Damien Accorsi</p>
+            <p><strong>&#9885;</strong> <a href="http://damien-accorsi-freelance-python-grenoble.me/">Freelance</a> architecture et dév. backend</p>
+            <p><strong>&#9885;</strong> Créateur de Tracim &mdash; <a href="http://tracim.fr" title="logiciel (libre)
+                de gestion collaborative des connaissances et de versionning de fichiers">http://tracim.fr</a>
+            </p>
+            <p>
+                <strong>&#9885;</strong> Contributeur LinuxFR &mdash; <a href="http://linuxfr.org/users/lebouquetin">http://linuxfr.org/users/lebouquetin</a>
+            </p>
+        </div>
+
+    </div>
+    <div class="ft-section" data-id="section-2">
+
+        <div id="/section-2/page-1" class="ft-page" data-id="page-1">
+            <h1>Les APIs web</h1>
+            <p><strong>&#9885;</strong> Qu'est-ce qu'une API web</p>
+            <p><strong>&#9885;</strong> Les types d'APIs web</p>
+        </div>
+
+      <div id="/section-2/page-2" class="ft-page" data-id="page-2">  
+          <div>
+              <h1 class="stacked-center">Une API web, c'est quoi ?</h1>
+  
+              <h2><strong>&#9885;</strong> Application Programming Interface</h2>
+              <p>interface de programmation pour accéder à un ensemble de fonctionnalités</p>
+              
+              <h2><strong>&#9885;</strong> API web</h2>
+              <p>interface de programmation pour interagir avec un système/service distant, avec ou sans authentification</p>
+
+              <h2><strong>&#9885;</strong> Types classiques d'API web</h2>
+              <ul>
+                  <li>SOAP</li>
+                  <li>XML/RPC et JSON/RPC (RPC pour Remote Procedure Call)</li>
+                  <li>REST/XML, REST/JSON</li>
+              </ul>
+          </div>
+      </div>
+
+      <div id="/section-2/page-3" class="ft-page" data-id="page-3">
+          <div>
+              <h1 class="stacked-center">SOAP &mdash; des API typées, mais complexes</h1>
+  
+              <h2><strong>&#9885;</strong> Avantages</h2>
+              <ul>
+                <li>Auto-documenté via le fichier WSDL (définition de l'API)</li>
+                <li>Manipulation de types complexes</li>
+                <li>Pas limité à HTTP (existe aussi au dessus de SMTP, par exemple)</li>
+              </ul>
+              
+              <h2><strong>&#9885;</strong> Inconvénients</h2>
+              <ul>
+                <li>lib client/serveur pas toujours compatibles</li>
+                <li>pas trivial à utiliser</li>
+              </ul>
+              <p><strong>SOAP n'est pas simple</strong> (et donc pas ciblé par Tortilla)</p>
+          </div>
+      </div>
+
+      <div id="/section-2/page-4" class="ft-page" data-id="page-4">
+          <div>
+              <h1 class="stacked-center">XML-RPC (ou JSON-RPC) &mdash; Appels de procédures distantes</h1>
+              <h2><strong>&#9885;</strong> Avantages</h2>
+              <ul>
+                <li>RPC: concept simple à comprendre pour les programmeurs</li>
+                <li>Existe depuis longtemps, de bonnes lib dispo</li>
+                <li>Utilisé par de nombreux logiciels open-source et services en ligne<br/>
+                ex. : <a href="https://www.dokuwiki.org/xmlrpc">DokuWiki</a>, Programmation de l'<a href="http://doc.rpc.gandi.net/overview.html">API Gandi</a>...</li>
+                <li>Variante JSON-RPC moins verbeuse</li>
+              </ul>
+              
+              <h2><strong>&#9885;</strong> Inconvénients</h2>
+              <ul>
+                <li>XML est verbeux... XML-RPC l'est donc aussi</li>
+                <li>Orienté "procédures", ce qui n'est pas le besoin le plus courant aujourd'hui</li>
+                <li>Sujet à des <a href="https://docs.python.org/3.4/library/xml.html#xml-vulnerabilities">vulnérabilités XML</a></li>
+              </ul>
+              <p>XML-RPC en python : utilisez le module <strong>xmlrpclib</strong> (xmlrpc.client en python 3)</p>
+          </div>
+      </div>
+
+      <div id="/section-2/page-5" class="ft-page" data-id="page-5">
+          <div>
+              <h1 class="stacked-center">API REST/JSON (ou REST/XML) &mdash; API orientée ressource</h1>
+              <h2><strong>&#9885;</strong>  Avantages</h2>
+              <ul>
+                <li>Simple et adapté à la manipulation de données stockées en base de données</li>
+                <li>Utilise les verbes définis par HTTP : GET, PUT, PATCH, DELETE, POST</li>
+                <li>REST est un principe d'architecture, pas une technologie -> rien n'est imposé</li>
+              </ul>
+              
+              <h2><strong>&#9885;</strong>  Inconvénients</h2>
+              <ul>
+                <li>Rien n'est imposé, on trouve donc du bon et du moins bon</li>
+              </ul>
+          </div>
+      </div>
+
+      <div id="/section-2/page-6" class="ft-page" data-id="page-6">
+          <div>
+              <h1 class="stacked-center">Exemple d'une api REST</h1>
+              
+              <h2>Définition</h2>
+              <p>
+                    <pre><code class="language-python">Server: api.service.com
+
+Endpoints:
+  GET  /videos       # retourne la liste des videos
+  POST /videos       # ajout d'une nouvelle vidéo
+  GET  /videos/&lt;id&gt;  # retourne la video #id
+  GET  /videos/&lt;id&gt;/comments  # retourne la liste de commentaires de la video #id
+  POST /videos/&lt;id&gt;/comments  # ajout d'un commentaire à la video #id</code></pre>
+              </p>
+              <h2>Utilisation</h2>
+              <p>Ajouter un commentaire sur la vidéo #33 se fera via un POST sur l'url</p>
+              <pre><code class="language-python">http://api.service.com/videos/33/comments</code></pre>
+
+              <p>Récupérer la liste des vidéos se fera via un GET sur l'url</p>
+              <pre><code class="language-python">http://api.service.com/videos</code></pre>
+
+          </div>
+      </div>
+
+    </div>
+    <div class="ft-section" data-id="section-3">
+
+      <div id="/section-3/page-1" class="ft-page" data-id="page-1">
+          <div>
+              <h1 class="stacked-center">Tortilla &mdash; Introduction</h1>
+  
+              <h2><strong>&#9885;</strong> Généralités</h2>
+              <h2><strong>&#9885;</strong> Débuter avec Tortilla</h2>
+              <h2><strong>&#9885;</strong> Du "wrapping", et juste ça</h2>
+
+          </div>
+      </div>
+
+      <div id="/section-3/page-2" class="ft-page" data-id="page-2">
+          <div>
+              <h1 class="stacked-center">Tortilla, c'est quoi ?</h1>
+  
+              <h2><strong>&#9885;</strong> La page github du projet dit...</h2>
+              <p class="center">
+                  &laquo;&nbsp;Wrapping web APIs made easy.&nbsp;&raquo;
+              </p>
+              <p>
+                En réalité, c'est plutôt <strong>&laquo;&nbsp;Wrapping REST APIs made easy.&nbsp;&raquo;</strong>
+              </p>
+
+              <h2><strong>&#9885;</strong> Tortilla est</h2>
+              <ul>
+                <li>Orienté APIs REST/JSON</li>
+                <li>Prêt pour python 3</li>
+                <li>Sous licence MIT</li>
+                <li>Sur Github - <a href="https://github.com/redodo/tortilla/">https://github.com/redodo/tortilla/</a></li>
+              </p>
+          </div>
+      </div>
+
+
+
+
+      <div id="/section-3/page-3" class="ft-page" data-id="page-3">
+          <div>
+              <h1 class="stacked-center">Débuter avec Tortilla</h1>
+  
+              <h2><strong>&#9885;</strong> Installation</h2>
+
+              <pre><code class="language-python">pip install tortilla</code></pre>
+
+              <h2><strong>&#9885;</strong> Exemple d'appel sur une api REST/JSON</h2>
+              <p>Recherche sur Github des projets incluant le mot-clé "tortilla" :
+              <pre><code class="language-python"># executes a GET request on the following url:
+# https://api.github.com/search/repositories?q=tortilla
+
+import tortilla
+github = tortilla.wrap('https://api.github.com')
+github.search.get('repositories', params={'q': 'tortilla'})
+              </code></pre>
+          </div>
+      </div>
+
+      <div id="/section-3/page-4" class="ft-page" data-id="page-4">
+          <div>
+              <h1 class="stacked-center">Débuter avec Tortilla &mdash; REST/XML</h1>
+  
+              <h2><strong>&#9885;</strong> Installation</h2>
+
+              <pre><code class="language-python">pip install tortilla
+pip install xmltodict</code></pre>
+
+              <h2><strong>&#9885;</strong> Exemple d'appel sur une api REST/XML</h2>
+              <p>Recherche sur OpenStreetMap d'une note avec la discussion associée :
+              <pre><code class="language-python"># executes a GET request on the following url:
+# http://api.openstreetmap.org/api/0.6/notes/326316?include_discussion=true
+
+import tortilla
+import xmltodict
+
+tortilla.formats.register('xml', xmltodict.parse, xmltodict.unparse)
+osm = tortilla.wrap('http://api.openstreetmap.org', format='xml')
+osm.api('0.6').notes.get(326316, params={'include_discussion': True})</code></pre>
+          </div>
+      </div>
+
+        <div id="/section-3/page-5" class="ft-page" data-id="page-5">
+            <div>
+                <h1>Du wrapping et juste ça</h1>
+                <p>Tortilla ne masque pas la complexité, il se contente de la "wrapper"</p>
+                <div>
+                    <h2><strong>&#9885;</strong> L'accès à des <strong>APIs REST simples</strong></h2>
+                    <p>donnera du code python simple</p>
+                </div>
+                <div>
+                    <h2><strong>&#9885;</strong> L'accès à des <strong>APIs (REST) complexes</strong></h2>
+                    <p>donnera du code python... complexe ;)</p>
+                </div>
+                <div>
+                    <h2><strong>&#9885;</strong> Dans tous les cas, <strong>l'écriture du code sera simplifiée</strong></h2>
+                    <p>mais parfois il restera difficile à lire ;)</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="/section-3/page-6" class="ft-page" data-id="page-6">
+            <div>
+                <h1>Illustration simple avec l'API Redmine</h1>
+                <div>
+                    <p>Récupération du détail du bug #19920</p>
+                    <pre><code class="language-python"># Redmine project web API
+# Get a given issue
+#
+# The API is at http://www.redmine.org/issues/19920?format=json
+
+import tortilla
+
+redmine = tortilla.wrap('http://www.redmine.org/')
+response = redmine.issues.get(19920, params={'format': 'json'})
+print response.issue
+                    </code></pre>
+                    <p>Dauns un cas simple... le code est simple</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="/section-3/page-7" class="ft-page" data-id="page-7">
+            <div>
+                <h1>Illustration complexe avec l'API Redmine</h1>
+                <div>
+                    <p>
+                        Objectif : récupérer la liste des bugs urgents encore ouverts sur le projet Redmine
+                    </p>
+                    <pre><code class="language-python"># Redmine project web API
+# Get list of urgent issues still open
+#
+# The API is at http://www.redmine.org/projects/redmine/issues
+# Complexity is about filtering data
+
+import tortilla
+
+redmine = tortilla.wrap('http://www.redmine.org/')
+response = redmine.projects('redmine').issues.get(params={'set_filter': '1',
+                                                          'f[]': ['status_id',
+                                                                  'priority_id'],
+                                                          'op[status_id]': 'o',
+                                                          'op[priority_id]': '=',
+                                                          'v[priority_id][]': 6,
+                                                          'format': 'json',
+                                                          'limit': 100})
+print str(response.total_count)+'issue(s)'
+for issue in response.issues:
+  print '{}\t{}\t{}'.format(issue.created_on, issue.id, issue.subject)
+
+# Will execute a GET on the following url:
+# http://www.redmine.org/projects/redmine/issues?set_filter=1&f[]=status_id&f[]=priority_id&op[status_id]=o&op[priority_id]=%3D&v[priority_id][]=6&format=json&limit=100
+                    </code></pre>
+                    <p>Dans un cas plus compliqué, la complexité... est toujours là ;)<br/>
+                    <small>la lisibilité est (éventuellement) améliorée</small></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="ft-section" data-id="section-4">
+
+        <div id="/section-4/page-1" class="ft-page" data-id="page-1">
+            <div>
+                <h1>Tortilla &mdash; Principes</h1>
+                <h2><strong>&#9885;</strong> Ecriture du code</h2>
+                <h2><strong>&#9885;</strong> Options surchargeables</h2>
+                <h2><strong>&#9885;</strong> Verbes HTTP standards</h2>
+            </div>
+        </div>
+        
+        <div id="/section-4/page-2" class="ft-page" data-id="page-2">
+            <div>
+                <h1>Ecriture du code</h1>
+                <p>Chaque méthode ou attribut représente un segment de l'URL</p>
+                <pre><code class="language-python">id, count = 71, 20
+api = tortilla.wrap('https://api.example.org')
+api.video(id).comments.get(count)</code></pre>
+                <p>peut se décomposer en :</p>
+                <pre><code class="language-python">api         -> https://api.example.org
+.video      -> /video
+(id)        -> /71
+.comments   -> /comments
+.get(count) -> /20 (et méthode GET)</code></pre>
+                <p>Le dernier appel chaîné correspond à la méthode HTTP, ici un GET.</p>
+                <pre><code class="language-python">GET https://api.example.org/video/71/comments/20</code></pre>
+            </div>
+        </div>
+        
+        <div id="/section-4/page-3" class="ft-page" data-id="page-3">
+            <div>
+                <h1>Les options sont surchargeables</h1>
+                <p>Les différentes options peuvent être définies à la création du wrapper, et surchargées à l'appel</p>
+                <pre><code class="language-python">api = tortilla.wrap('https://api.example.org', debug=True)
+
+# do not show debug messages
+api.video(71).comments.get(20, debug=False)
+
+# show debug messages
+api.video(71).comments.get(20)</code></pre>
+
+                <p>Autre exemple avec les headers</p>
+                <pre><code class="language-python">
+api = tortilla.wrap('https://api.example.org', debug=True)
+
+# define default header
+api.config.headers.authorization = 'Basic oirzegnuirzenuioernv'
+
+# no headers
+api.video(71).comments.get(20, headers={})
+
+# default headers will be sent
+api.video(71).comments.get(20)</code></pre>
+            </div>
+        </div>
+
+        <div id="/section-4/page-4" class="ft-page" data-id="page-4">
+            <div>
+                <h1>Verbes standards HTTP &mdash; Rappel</h1>
+                <p>
+                    Les verbes HTTP standards sont supportés :<br/>
+                    <strong>GET, POST, PUT, PATCH, DELETE, HEAD</strong><br/>
+                    via les méthodes get(), post(), put(), patch(), delete() et head()
+                </p>
+
+                <h2>Signification des verbes (convention)</h2>
+                <ul>
+                    <li>GET : récupération d'une ressource</li>
+                    <li>POST : création d'une ressource</li>
+                    <li>PUT : modification intégrale d'une ressource</li>
+                    <li>PATCH : modification partielle d'une ressource</li>
+                    <li>DELETE : suppression d'une ressource</li>
+                    <li>HEAD : récupération des métadonnées d'une ressource</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="ft-section" data-id="section-5">
+        <div id="/section-5/page-1" class="ft-page" data-id="page-1">
+            <div>
+                <h1>Tortilla &mdash; Mise en oeuvre</h1>
+
+                <h2><strong>&#9885;</strong> Ressource manipulée</h2>
+                <h2><strong>&#9885;</strong> Données envoyées</h2>
+                <h2><strong>&#9885;</strong> Paramètres d'url</h2>
+                <h2><strong>&#9885;</strong> Ajout de headers</h2>
+                <h2><strong>&#9885;</strong> Extension d'url</h2>
+                <h2><strong>&#9885;</strong> Format de données</h2>
+                <h2><strong>&#9885;</strong> Authentification</h2>
+                <h2><strong>&#9885;</strong> Optimisation des performance</h2>
+            </div>
+        </div>
+
+        <div id="/section-5/page-2" class="ft-page" data-id="page-2">
+            <div>
+                <h2>Ressource manipulée : premier paramètre</h2>
+                <pre><code class="language-python"># GET http://api.example.org/videos/33
+api.videos.get(33)</code></pre>
+
+                <h2>Données envoyées : paramètre <strong>data</strong></h2>
+                <pre><code class="language-python"># POST http://api.example.org/videos/33/comments
+api.videos(33).comments.post(data={'pseudo': 'fantomass', 
+                                   'message': 'Hey! This guy is really AWESOME!'})</code></pre>
+
+
+                <h2>Paramètres d'url : paramètre <strong>params</strong></h2>
+                <pre><code class="language-python"># GET http://api.example.org/videos/33/comments?order_by=pub_date
+api.videos(33).comments.get(params={'order_by': 'pub_date'})</code></pre>
+            </div>
+        </div>
+
+        <div id="/section-5/page-3" class="ft-page" data-id="page-3">
+            <div>
+                <h2>Ajout de headers</h2>
+                <p>soit via le paramètre <strong>headers</strong></p>
+                <pre><code class="language-python"># GET http://api.example.org/videos/33 with following header:
+# AUTHORIZATION: BASIC DHJh327tOiE0uKJYcmtycght
+api.videos.get(33, headers={'AUTHORIZATION': 'BASIC DHJh327tOiE0uKJYcmtycght'})</code></pre>
+
+                <p>soit par <strong>configuration</strong> du wrapper</p>
+                <pre><code class="language-python">api = tortilla.wrap('http://api.service.org')
+api.config.headers.authorization = 'BASIC DHJh327tOiE0uKJYcmtycght'</code></pre>
+            </div>
+        </div>
+        <div id="/section-5/page-4" class="ft-page" data-id="page-4">
+            <div>
+                <h2>Ajout d'une extension à l'url</h2>
+                <pre><code class="language-python"># GET http://api.example.org/videos/33/comments.json?order_by=pub_date
+api.videos(33).comments.get(params={'order_by': 'pub_date'}, extension='json')</code></pre>
+
+                <p>donne l'url</p>
+                <p>http://api.example.org/videos/33/comments<strong>.json</strong>?order_by=pub_date</p>
+
+            </div>
+        </div>
+        <div id="/section-5/page-5" class="ft-page" data-id="page-5">
+            <div>
+                <h2>Format de données (par défault : json)</h2>
+                <p>définit le parsing des réponses (et l'encodage des données envoyées)</p>
+                <pre><code class="language-python">import tortilla
+import xmltodict
+                
+# Register a new type of data (with associated encode/decode methods)
+tortilla.formats.register('xml', xmltodict.parse, xmltodict.unparse)
+
+# Now, tortilla can wrap a RSS which is pure XML
+gandi_news = tortilla.wrap('http://www.gandi.net/feed/news/fr/block/hp/', format='xml')
+gandi_news.get()</code></pre>
+
+                <p>Intérêt : possibilité de définir un "parser" vraiment spécifique</p>
+            </div>
+        </div>
+
+        <div id="/section-5/page-6" class="ft-page" data-id="page-6">
+            <div>
+                <h2>Authentification 'Basic Authentication'</h2>
+                <p>Tortilla supporte l'authentification HTTP via <a href="http://fr.wikipedia.org/wiki/Authentification_HTTP">la méthode Basic</a> :</p>
+                <pre><code class="language-python">AUTHORIZATION: Basic ZmFudG9tYXM6bXlfc2VjcmV0X3Bhc3N3b3JkX2duYXJrX2duYXJrX2duYXJr</code></pre>
+                <p>En python 2.7, cela donne quelque chose comme :</p>
+                <pre><code class="language-python">import base64
+import tortilla
+
+username = 'fantomas'
+password = 'my_secret_password_gnark_gnark_gnark'
+
+user_and_pass = '%s:%s' % (username, password)
+auth_string = 'Basic %s' % (base64.b64encode(user_and_pass))
+
+# auth_string now contains something like:
+# Basic ZmFudG9tYXM6bXlfc2VjcmV0X3Bhc3N3b3JkX2duYXJrX2duYXJrX2duYXJr
+
+github = tortilla.wrap('https://api.github.com', debug=True)
+github.config.headers.authorization = auth_string  # Set authorization header for all requests
+
+github.search.repositories.get(params=dict(q='python,calendar,server',
+                                           sort='stars'))</code></pre>
+            </div>
+        </div>
+
+        <div id="/section-5/page-7" class="ft-page" data-id="page-7">
+            <div>
+                <h2>Optimisation des ressources réseau</h2>
+
+                <p>
+                    <strong>Mise en cache des requêtes et résultats</strong>
+                    pour éviter de refaire des requêtes identiques (durée de vie du cache paramétrable en secondes) :
+                </p>
+                <pre><code class="language-python">api = tortilla.wrap('http://localhost:5000', cache_lifetime=60)
+
+api.live.get(37)  # HTTP request is executed
+api.live.get(37)  # Result is taken from cache
+
+# Force not using cache with ignore_cache
+api.live.get(37, ignore_cache=True)  # HTTP request is executed</code></pre>
+
+                <p>
+                    <strong>Bridage du taux de requêtage</strong>
+                    pour respecter les contraintes imposées côté serveur
+                    (et ne pas se faire black-lister) :
+                </p>
+                <pre><code class="language-python"># Force a 3 seconds delay between requests
+api = tortilla.wrap('http://localhost:5000', delay=3)</code></pre>
+            </div>
+        </div>
+
+        <div id="/section-5/page-8" class="ft-page" data-id="page-8">
+            <div>
+                <h2>Utilisation détournée de Tortilla...</h1>
+                <p>"Construction" d'une api de recherche sur le site web leboncoin</p>
+                
+                <pre><code class="language-markup">http://www.leboncoin.fr/voitures/offres/rhone_alpes/?f=a&th=1&q=bmw&location=Grenoble 38100,Grenoble 38000</code></pre>
+                <p>peut se décomposer en :</p>
+                <pre><code class="language-markup">http://www.leboncoin.fr                 -> racine
+/ventes_immobilieres                    -> catégorie recherchée
+/offres                                 -> élément statique
+/rhone_alpes                            -> région ciblée
+?f=a&th=1                               -> paramètres cabalistiques (on les reprendra tel-quels)
+&q=bmw                                  -> paramètre de recherche de mots-clés
+&location=Grenoble 38100,Grenoble 38000 -> localisation précise, ville avec code postal, séparées par une virgule
+</code></pre>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  <div class="loglog"></div>
+
+  <script src="js/brav1toolbox.js"></script>
+  <script src="js/flowtime.js"></script>
+  <script src="assets/js/prism.js"></script>
+
+  <script type="text/javascript">
+    // Minified python code highlight
+    // taken from http://www.multipetros.gr/posts/1486-python-syntax-add-on-for-prismjs-highlighter/
+    Prism.languages.python={comment:{pattern:/(^|[^\\])#.*?(\r?\n|$)/g,lookbehind:!0},string:/("|')(\\?.)*?\1/g,keyword:/\b(as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|pass|print|raise|return|try|while|with|yield)\b/g,boolean:/\b(True|False)\b/g,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/[-+]{1,2}|=?&lt;|=?&gt;|!|={1,2}|(&){1,2}|(&amp;){1,2}|\|?\||\?|\*|\/|~|\^|%|\b(or|and|not)\b/g,ignore:/&(lt|gt|amp);/gi,punctuation:/[{}[\];(),.:]/g};
+  </script>
+  <script type="text/javascript">
+    var cacheTitle = document.title.replace("Flowtime.js | ", "");
+    
+    // Configuration API test
+    Flowtime.showProgress(true);
+    // Flowtime.fragmentsOnSide(true);
+    // Flowtime.fragmentsOnBack(true);
+    // Flowtime.useHistory(false);
+    // Flowtime.slideInPx(true);
+    // Flowtime.sectionsSlideToTop(true);
+    // Flowtime.gridNavigation(true);
+    // Flowtime.useOverviewVariant(true);
+    // Flowtime.parallaxInPx(true);
+    //
+    // event management
+    Flowtime.addEventListener("flowtimenavigation", onNavigation, false);
+    function onNavigation(e)
+    {
+      // console.log(cacheTitle + ' > ' + document.title.replace("Flowtime.js | ", ""));
+      cacheTitle = document.title.replace("Flowtime.js | ", "");
+      //console.log('section', e.section, 'sectionIndex', e.sectionIndex);
+      //console.log('page', e.page, 'pageIndex', e.);
+      //console.log('pastSectionIndex', e.pastSectionIndex, 'pastPageIndex', e.pastPageIndex);
+      //console.log('prevSection', e.prevSection);
+      //console.log('nextSection', e.nextSection);
+      //console.log('prevPage', e.prevPage);
+      //console.log('nextPage', e.nextPage);
+      //console.log('fragment', e.fragment, + 'fragmentIndex', e.fragmentIndex);
+      //console.log("isOverview", e.isOverview);
+      //console.log('progress :', e.progress, 'total :', e.total);
+      // var value = Math.round(e.progress * 100 / e.total);
+      // console.log('Completion : ' + value + '%');
+    }
+    // starts the application with configuration options
+    Flowtime.start();
+  </script>
+  <script type="text/javascript" src="http ://slidemote.jit.su/slidemote.js#flowtime"></script>
+</body>
+</html>
